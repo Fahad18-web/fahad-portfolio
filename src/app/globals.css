@@ -1,31 +1,59 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --bg-soft: #ecf1f8;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --border: #d7dee8;
+  --border-subtle: #e2e8f0;
+  --border-hover: #b7c3d4;
+  --text: #0f172a;
+  --text-muted: #334155;
+  --text-dim: #64748b;
+  --text-faint: #94a3b8;
+  --accent: #0f766e;
+  --accent-dim: #0d9488;
+  --accent-contrast: #f8fafc;
+  --accent-glow: rgba(45, 212, 191, 0.15);
+  --shadow-lift: 0 12px 40px -12px rgba(15, 23, 42, 0.18);
+}
+
+[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0A0A0A;
+  --bg-soft: #0d0d0d;
   --bg-elevated: #111111;
   --bg-card: #141414;
   --border: #222222;
-  --border-hover: #2a2a2a;
+  --border-subtle: #1a1a1a;
+  --border-hover: #333333;
   --text: #F5F5F5;
   --text-muted: #A3A3A3;
   --text-dim: #737373;
+  --text-faint: #555555;
   --accent: #2DD4BF;
   --accent-dim: #14B8A6;
-  --accent-glow: rgba(45, 212, 191, 0.15);
+  --accent-contrast: #0A0A0A;
+  --shadow-lift: 0 12px 40px -12px rgba(0, 0, 0, 0.5);
 }
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
   --color-bg-elevated: var(--bg-elevated);
   --color-bg-card: var(--bg-card);
   --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
   --color-border-hover: var(--border-hover);
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
   --color-accent: var(--accent);
   --color-accent-dim: var(--accent-dim);
+  --color-accent-contrast: var(--accent-contrast);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -42,7 +70,7 @@ body {
 
 ::selection {
   background: var(--accent);
-  color: #0A0A0A;
+  color: var(--accent-contrast);
 }
 
 ::-webkit-scrollbar {
@@ -52,11 +80,11 @@ body {
   background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--border-hover);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: var(--text-dim);
 }
 
 :focus-visible {
@@ -80,7 +108,7 @@ body {
 .card-lift:hover {
   transform: translateY(-4px);
   border-color: var(--border-hover);
-  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lift);
 }
 
 .accent-line {

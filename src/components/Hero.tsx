@@ -11,17 +11,17 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8 w-full py-20 md:py-28">
         <div className="max-w-3xl">
-          <p className="mb-4 text-sm font-medium tracking-wide text-[#2DD4BF]">
+          <p className="mb-4 text-sm font-medium tracking-wide text-accent">
             Software Engineering Student · Frontend Developer
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-[#F5F5F5]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-text">
             Turning Ideas Into Modern,{" "}
-            <span className="text-[#2DD4BF]">High-Performing</span> Web
+            <span className="text-accent">High-Performing</span> Web
             Experiences.
           </h1>
 
-          <p className="mt-6 max-w-xl text-base md:text-lg text-[#A3A3A3] leading-relaxed">
+          <p className="mt-6 max-w-xl text-base md:text-lg text-text-muted leading-relaxed">
             I build responsive websites, improve existing interfaces, fix
             frontend issues, and develop practical web applications with React
             and the MERN stack — so your product looks sharp and works reliably.
@@ -30,20 +30,20 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-[#2DD4BF] px-6 py-3 text-sm font-semibold text-[#0A0A0A] hover:bg-[#14B8A6] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-contrast hover:bg-accent-dim transition-colors"
             >
               View My Work
               <ArrowRightIcon size={16} />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-[#333] bg-transparent px-6 py-3 text-sm font-medium text-[#F5F5F5] hover:border-[#2DD4BF] hover:text-[#2DD4BF] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-border-hover bg-transparent px-6 py-3 text-sm font-medium text-text hover:border-accent hover:text-accent transition-colors"
             >
               Discuss Your Project
             </a>
           </div>
 
-          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[#737373]">
+          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-text-dim">
             <span>React · Tailwind · Node.js</span>
             <span>MERN Applications</span>
             <span>Based in Lahore, Pakistan</span>
