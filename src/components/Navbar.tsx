@@ -43,7 +43,7 @@ export default function Navbar() {
           href="#home"
           className="text-lg font-semibold tracking-tight text-[#F5F5F5] hover:text-[#2DD4BF] transition-colors"
         >
-          Fahad<span className="text-[#2DD4BF]">.</span>
+          Fahad<span className="text-[var(--accent)]">.</span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -59,25 +59,28 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center rounded-full bg-[#2DD4BF] px-5 py-2 text-sm font-medium text-[#0A0A0A] hover:bg-[#14B8A6] transition-colors"
-        >
-          Let&apos;s Work Together
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-full bg-[#2DD4BF] px-5 py-2 text-sm font-medium text-[#0A0A0A] hover:bg-[#14B8A6] transition-colors"
+          >
+            Let&apos;s Work Together
+          </a>
+        </div>
 
-        <button
-          type="button"
-          className="md:hidden p-2 text-[#F5F5F5]"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <XIcon size={22} /> : <MenuIcon size={22} />}
-        </button>
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            type="button"
+            className="p-2 text-[#F5F5F5]"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <XIcon size={22} /> : <MenuIcon size={22} />}
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile menu */}
       <div
         className={cn(
           "md:hidden fixed inset-0 top-[57px] bg-[#0A0A0A] transition-opacity duration-300",

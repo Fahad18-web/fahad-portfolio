@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
   --bg: #0A0A0A;
   --bg-elevated: #111111;
   --bg-card: #141414;
@@ -38,6 +37,19 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.dark-select {
+  color-scheme: dark;
+}
+
+.dark-select option {
+  background-color: #0A0A0A;
+  color: #F5F5F5;
+}
+
+.dark-select option:disabled {
+  color: #737373;
 }
 
 ::selection {

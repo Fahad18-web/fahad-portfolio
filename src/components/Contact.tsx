@@ -136,7 +136,7 @@ export default function Contact() {
                   <select
                     id="service"
                     name="service"
-                    className="w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
+                    className="dark-select w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -161,7 +161,7 @@ export default function Contact() {
                   <select
                     id="budget"
                     name="budget"
-                    className="w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
+                    className="dark-select w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
                     defaultValue=""
                   >
                     <option value="">Prefer not to say</option>

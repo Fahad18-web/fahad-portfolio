@@ -1,4 +1,6 @@
 import { ArrowRightIcon } from "./Icons";
+import Image from "next/image";
+import heroImage from "@/assets/hero-img.jpg";
 
 export default function Hero() {
   return (
@@ -10,9 +12,10 @@ export default function Hero() {
       <div className="hero-glow bottom-0 -left-40 opacity-50" />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8 w-full py-20 md:py-28">
-        <div className="max-w-3xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div className="max-w-3xl">
           <p className="mb-4 text-sm font-medium tracking-wide text-[#2DD4BF]">
-            Software Engineering Student · Frontend Developer
+            Software Engineering Graduate
           </p>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight text-[#F5F5F5]">
@@ -43,10 +46,26 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[#737373]">
-            <span>React · Tailwind · Node.js</span>
-            <span>MERN Applications</span>
-            <span>Based in Lahore, Pakistan</span>
+            <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[#737373]">
+              <span>React · Tailwind · Node.js</span>
+              <span>MERN Applications</span>
+              <span>Based in Lahore, Pakistan</span>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
+            <div className="absolute -inset-3 rounded-[2rem] border border-[#2DD4BF]/20 rotate-3" />
+            <div className="absolute -inset-3 rounded-[2rem] bg-[#2DD4BF]/10 blur-2xl" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#2DD4BF]/40 bg-[#141414]">
+              <Image
+                src={heroImage}
+                alt="Muhammad Fahad, frontend and MERN developer"
+                fill
+                priority
+                sizes="(max-width: 1024px) 80vw, 400px"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
       </div>

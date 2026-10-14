@@ -13,7 +13,7 @@ export default function About() {
 
           <div className="md:col-span-7 space-y-5 text-[#A3A3A3] leading-relaxed">
             <p>
-              I&apos;m a Software Engineering student and developer based in
+              I'm a Software Engineering Graduate and developer based in
               Lahore, Pakistan. I care about building useful web applications
               and solving real frontend problems — clean layouts, reliable
               components, and interfaces that feel intentional.
