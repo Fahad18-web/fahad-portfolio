@@ -3,11 +3,24 @@
 import { useState, FormEvent } from "react";
 import { SendIcon, CheckIcon } from "./Icons";
 
+const EMAIL = "fa2367701@gmail.com";
+
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,7 +47,6 @@ export default function Contact() {
       return;
     }
 
-    // Build mailto as a reliable no-backend fallback
     const subject = encodeURIComponent(
       `Portfolio inquiry: ${service || "General"} — ${name}`
     );
@@ -42,151 +54,149 @@ export default function Contact() {
       `Name: ${name}\nEmail: ${email}\nService: ${service || "—"}\nBudget: ${budget || "—"}\n\nDetails:\n${details}`
     );
 
-    // Open native mail client (works without a form backend)
-    window.location.href = `mailto:fa2367701@gmail.com?subject=${subject}&body=${body}`;
-
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     setStatus("success");
     form.reset();
   }
 
+  const fieldClass =
+    "w-full rounded-xl border border-[#333] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] placeholder:text-[#525252] outline-none transition-colors focus:border-[#2DD4BF]";
+
   return (
     <section id="contact" className="section-pad">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-16">
+          {/* Left */}
           <div className="md:col-span-5">
-            <p className="text-sm font-medium text-[#2DD4BF] mb-2">Contact</p>
+            <p className="mb-2 text-sm font-medium text-[#2DD4BF]">Contact</p>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#F5F5F5]">
               Let&apos;s build something useful
             </h2>
             <div className="accent-line mt-4" />
-            <p className="mt-5 text-[#A3A3A3] leading-relaxed">
-              Tell me about your project — landing page, frontend fixes,
-              redesign, or a MERN application. I&apos;ll reply with next steps
-              and a clear quote.
+            <p className="mt-5 leading-relaxed text-[#A3A3A3]">
+              Landing page, frontend fixes, redesign, or a MERN app — I&apos;ll
+              reply with next steps and a clear quote.
             </p>
+
             <div className="mt-8 space-y-3 text-sm">
-              <a
-                href="mailto:fa2367701@gmail.com"
-                className="block text-[#A3A3A3] hover:text-[#2DD4BF] transition-colors"
-              >
-                fa2367701@gmail.com
-              </a>
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-[#A3A3A3] transition-colors hover:text-[#2DD4BF]"
+                >
+                  {EMAIL}
+                </a>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="rounded-full border border-[#333] px-2.5 py-1 text-xs text-[#737373] transition-colors hover:border-[#2DD4BF] hover:text-[#2DD4BF]"
+                >
+                  {copied ? "Copied!" : "Copy email"}
+                </button>
+              </div>
               <a
                 href="https://github.com/Fahad18-web"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#A3A3A3] hover:text-[#2DD4BF] transition-colors"
+                className="block text-[#A3A3A3] transition-colors hover:text-[#2DD4BF]"
               >
                 github.com/Fahad18-web
               </a>
             </div>
           </div>
 
+          {/* Right — full form */}
           <div className="md:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-[#222] bg-[#141414] p-6 md:p-8 space-y-5"
+              className="space-y-5 rounded-2xl border border-[#333] bg-[#141414] p-6 md:p-8"
               noValidate
             >
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-xs font-medium text-[#737373] mb-1.5"
-                  >
-                    Name *
+                  <label htmlFor="name" className="mb-1.5 block text-xs font-medium text-[#A3A3A3]">
+                    Name <span className="text-[#2DD4BF]">*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
                     type="text"
-                    required
                     autoComplete="name"
-                    className="w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[#2DD4BF] focus:outline-none transition-colors"
+                    required
                     placeholder="Your name"
+                    className={fieldClass}
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-xs font-medium text-[#737373] mb-1.5"
-                  >
-                    Email *
+                  <label htmlFor="email" className="mb-1.5 block text-xs font-medium text-[#A3A3A3]">
+                    Email <span className="text-[#2DD4BF]">*</span>
                   </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
-                    required
                     autoComplete="email"
-                    className="w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[#2DD4BF] focus:outline-none transition-colors"
+                    required
                     placeholder="you@company.com"
+                    className={fieldClass}
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-xs font-medium text-[#737373] mb-1.5"
-                  >
+                  <label htmlFor="service" className="mb-1.5 block text-xs font-medium text-[#A3A3A3]">
                     Service needed
                   </label>
                   <select
                     id="service"
                     name="service"
-                    className="dark-select w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
                     defaultValue=""
+                    className={`${fieldClass} dark-select`}
                   >
                     <option value="" disabled>
                       Select a service
                     </option>
                     <option value="Landing Page">Landing Page Development</option>
-                    <option value="React / Bug Fixing">
-                      React Development & Bug Fixing
-                    </option>
-                    <option value="Redesign">Website Redesign & UI</option>
+                    <option value="React / Bug Fixing">React Website &amp; Bug Fixing</option>
+                    <option value="Redesign">Website Redesign &amp; UI</option>
                     <option value="MERN App">MERN Stack Application</option>
                     <option value="Other">Other / Not sure</option>
                   </select>
                 </div>
                 <div>
-                  <label
-                    htmlFor="budget"
-                    className="block text-xs font-medium text-[#737373] mb-1.5"
-                  >
-                    Budget (optional)
+                  <label htmlFor="budget" className="mb-1.5 block text-xs font-medium text-[#A3A3A3]">
+                    Budget range
                   </label>
                   <select
                     id="budget"
                     name="budget"
-                    className="dark-select w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] focus:border-[#2DD4BF] focus:outline-none transition-colors"
                     defaultValue=""
+                    className={`${fieldClass} dark-select`}
                   >
-                    <option value="">Prefer not to say</option>
+                    <option value="" disabled>
+                      Select a range
+                    </option>
                     <option value="Under $500">Under $500</option>
                     <option value="$500 – $1,500">$500 – $1,500</option>
                     <option value="$1,500 – $3,000">$1,500 – $3,000</option>
                     <option value="$3,000+">$3,000+</option>
+                    <option value="Not sure yet">Not sure yet</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label
-                  htmlFor="details"
-                  className="block text-xs font-medium text-[#737373] mb-1.5"
-                >
-                  Project details *
+                <label htmlFor="details" className="mb-1.5 block text-xs font-medium text-[#A3A3A3]">
+                  Project details <span className="text-[#2DD4BF]">*</span>
                 </label>
                 <textarea
                   id="details"
                   name="details"
                   required
                   rows={5}
-                  className="w-full rounded-xl border border-[#222] bg-[#0A0A0A] px-4 py-2.5 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[#2DD4BF] focus:outline-none transition-colors resize-y"
-                  placeholder="What are you building? Timeline, goals, or links help a lot."
+                  placeholder="What are you building? Timeline, links, or anything useful…"
+                  className={`${fieldClass} resize-y min-h-[120px]`}
                 />
               </div>
 
@@ -196,20 +206,16 @@ export default function Contact() {
                 </p>
               )}
               {status === "success" && (
-                <p
-                  className="flex items-center gap-2 text-sm text-[#2DD4BF]"
-                  role="status"
-                >
+                <p className="flex items-center gap-2 text-sm text-[#2DD4BF]" role="status">
                   <CheckIcon size={16} />
-                  Opening your email client… If it doesn&apos;t open, write to
-                  fa2367701@gmail.com
+                  Opening your email client… You can also use Copy email.
                 </p>
               )}
 
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex items-center gap-2 rounded-full bg-[#2DD4BF] px-6 py-3 text-sm font-semibold text-[#0A0A0A] hover:bg-[#14B8A6] disabled:opacity-60 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-[#2DD4BF] px-6 py-3 text-sm font-semibold text-[#0A0A0A] transition-colors hover:bg-[#14B8A6] disabled:opacity-60"
               >
                 {status === "loading" ? (
                   "Sending…"
@@ -221,10 +227,9 @@ export default function Contact() {
                 )}
               </button>
 
-              <p className="text-xs text-[#555]">
+              <p className="text-xs text-[#525252]">
                 Form opens your email client with a pre-filled message. No data
-                is stored on this site. For a fully hosted form (Formspree /
-                Resend), add an API route later.
+                is stored on this site.
               </p>
             </form>
           </div>
