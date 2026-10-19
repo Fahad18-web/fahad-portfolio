@@ -50,11 +50,20 @@ export default function Hero() {
               >
                 Discuss Your Project
               </a>
+              <a
+                href="/Muhammad-Fahad-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#333] bg-transparent px-6 py-3 text-sm font-medium text-[#F5F5F5] hover:border-[#2DD4BF] hover:text-[#2DD4BF] transition-colors"
+              >
+                Resume / CV ↗
+              </a>
             </div>
 
             <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[#737373] lg:justify-start">
               <span>React · Next.js · Tailwind</span>
               <span>MERN Applications</span>
+              <span>Top 7% HEC NSCT Graduate</span>
               <span>Based in Lahore, Pakistan</span>
             </div>
           </div>

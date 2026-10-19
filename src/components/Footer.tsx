@@ -8,10 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 md:px-8 py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
-            <a
-              href="#home"
-              className="text-lg font-semibold text-[#F5F5F5]"
-            >
+            <a href="#home" className="text-lg font-semibold text-[#F5F5F5]">
               Fahad<span className="text-[#2DD4BF]">.</span>
             </a>
             <p className="mt-2 text-sm text-[#737373] max-w-xs">
@@ -25,6 +22,9 @@ export default function Footer() {
             </a>
             <a href="#projects" className="hover:text-[#F5F5F5] transition-colors">
               Projects
+            </a>
+            <a href="#credentials" className="hover:text-[#F5F5F5] transition-colors">
+              Credentials
             </a>
             <a href="#about" className="hover:text-[#F5F5F5] transition-colors">
               About
@@ -45,7 +45,7 @@ export default function Footer() {
               <GithubIcon size={20} />
             </a>
             <a
-              href="mailto:fa2367701@gmail.com"
+              href="mailto:linkedinmfa@gmail.com"
               className="text-[#A3A3A3] hover:text-[#2DD4BF] transition-colors"
               aria-label="Email"
             >
@@ -56,7 +56,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-[#1a1a1a] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#555]">
           <p>© {currentYear} Muhammad Fahad. All rights reserved.</p>
-          <p>Built with Next.js & Tailwind CSS</p>
+          <p>Built with Next.js and Tailwind CSS</p>
         </div>
       </div>
     </footer>

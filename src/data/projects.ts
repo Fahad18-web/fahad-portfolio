@@ -27,12 +27,21 @@ export const projects: Project[] = [
     problem:
       "Habit apps are often noisy or lack clear feedback. Users need calm logging with scores, streaks, and trends.",
     features: [
-      "JWT auth, rate limiting, validated Express API",
+      "JWT auth + Resend password resets & reminders",
       "Live net score (A–F) + Chart.js trends",
       "Habit replacement pairs with success rate",
       "Dark/light themes and color vibes",
     ],
-    tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT", "Chart.js"],
+    tech: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Resend",
+      "Chart.js",],
     role: "Full-stack ownership",
     github: "https://github.com/Fahad18-web/life-tracker-mern",
     live: "https://life-tracker-mern.vercel.app/",

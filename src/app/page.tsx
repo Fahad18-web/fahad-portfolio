@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
+import Credentials from "@/components/Credentials";
 import Process from "@/components/Process";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -17,6 +18,7 @@ export default function Home() {
         <TechStack />
         <Services />
         <Projects />
+        <Credentials />
         <Process />
         <About />
         <Contact />

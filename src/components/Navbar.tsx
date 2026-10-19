@@ -8,6 +8,7 @@ const links = [
   { href: "#home", label: "Home" },
   { href: "#services", label: "Services" },
   { href: "#projects", label: "Projects" },
+  { href: "#credentials", label: "Credentials" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -61,6 +62,14 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
+            href="/Muhammad-Fahad-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[#A3A3A3] hover:text-[#F5F5F5] transition-colors"
+          >
+            Resume ↗
+          </a>
+          <a
             href="#contact"
             className="inline-flex items-center rounded-full bg-[#2DD4BF] px-5 py-2 text-sm font-medium text-[#0A0A0A] hover:bg-[#14B8A6] transition-colors"
           >
@@ -99,6 +108,17 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li className="pt-2">
+            <a
+              href="/Muhammad-Fahad-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="block py-3 text-lg text-[#A3A3A3] hover:text-[#2DD4BF] transition-colors"
+            >
+              Resume ↗
+            </a>
+          </li>
           <li className="pt-4">
             <a
               href="#contact"

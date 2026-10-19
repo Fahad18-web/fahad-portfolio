@@ -3,9 +3,16 @@
 import { useState, FormEvent } from "react";
 import { SendIcon, CheckIcon } from "./Icons";
 
-const EMAIL = "fa2367701@gmail.com";
+const EMAIL = "linkedinmfa@gmail.com";
 
 type Status = "idle" | "loading" | "success" | "error";
+
+const expectations = [
+  "Clean, maintainable React / Next.js & Express codebases",
+  "Clear scope, milestone updates, and live preview links",
+  "Mobile-first responsiveness tested across devices",
+  "Full source handover & deployment support",
+];
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -16,7 +23,7 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 2500);
     } catch {
       setCopied(false);
     }
@@ -66,7 +73,6 @@ export default function Contact() {
     <section id="contact" className="section-pad">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-10 md:grid-cols-12 md:gap-16">
-          {/* Left */}
           <div className="md:col-span-5">
             <p className="mb-2 text-sm font-medium text-[#2DD4BF]">Contact</p>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[#F5F5F5]">
@@ -91,7 +97,7 @@ export default function Contact() {
                   onClick={copyEmail}
                   className="rounded-full border border-[#333] px-2.5 py-1 text-xs text-[#737373] transition-colors hover:border-[#2DD4BF] hover:text-[#2DD4BF]"
                 >
-                  {copied ? "Copied!" : "Copy email"}
+                  {copied ? "✓ Email Copied" : "Copy email"}
                 </button>
               </div>
               <a
@@ -105,8 +111,30 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right — full form */}
-          <div className="md:col-span-7">
+          <div className="md:col-span-7 space-y-5">
+            <div className="rounded-2xl border border-[#222] bg-[#141414] p-5 md:p-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-sm font-semibold text-[#F5F5F5]">
+                  What you can expect
+                </h3>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#222] bg-[#0A0A0A] px-2.5 py-1 text-xs text-[#2DD4BF]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  Replies &lt; 12 hrs
+                </span>
+              </div>
+              <ul className="mt-4 space-y-2.5">
+                {expectations.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-2 text-sm text-[#A3A3A3] leading-relaxed"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2DD4BF]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <form
               onSubmit={handleSubmit}
               className="space-y-5 rounded-2xl border border-[#333] bg-[#141414] p-6 md:p-8"
